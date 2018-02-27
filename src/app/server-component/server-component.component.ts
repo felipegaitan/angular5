@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppUtilities } from '../utilities/app.utilities';
 
 @Component({
   selector: 'app-server-component',
@@ -8,14 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class ServerComponentComponent implements OnInit {
 
   serverId: number;
-  serverText: string;
+  serverName: string;
   allowNewServer: boolean;
   serverCreationStatus: string;
 
+  utilities = new AppUtilities();
+
   constructor() {
-    this.serverId = 12;
+    this.serverId = this.utilities.randomNumber();
     this.allowNewServer = true;
-    this.serverText = 'server down';
+    this.serverName = '';
     this.serverCreationStatus = 'no server created!';
     setTimeout(() => {
       this.allowNewServer = false;
@@ -27,6 +30,11 @@ export class ServerComponentComponent implements OnInit {
 
   createServer() {
     this.serverCreationStatus = 'server created!';
+  }
+
+  onUpdateServerName(event: Event) {
+    console.log( event );
+    this.serverName = event.target.value;
   }
 
 }

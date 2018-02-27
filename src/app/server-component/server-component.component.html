@@ -1,9 +1,18 @@
-<button class="btn btn-primary" 
-        [disabled]="allowNewServer"
-        (click)="createServer()">Add Server</button>
+<label>New Server Name</label>
+<input 
+      class="form-control"
+      type="text"
+      (input)="onUpdateServerName($event)">
 <hr />
-<pre>{{ serverCreationStatus }}</pre>
+<button 
+      class="btn btn-danger" 
+      [disabled]="allowNewServer"
+      (click)="createServer()">Add Server</button>
+<hr />
 <pre>
-  Server #{{ serverId }} - '{{ serverText }}'
+  {{ serverCreationStatus }}
+</pre>
+<pre>
+  Server #{{ serverId }} - '{{ serverName }}'
 </pre>
  
