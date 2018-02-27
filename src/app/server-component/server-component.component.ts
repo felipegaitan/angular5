@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServerComponentComponent implements OnInit {
 
-  constructor() { }
+  serverId: number;
+  serverText: string;
+
+  constructor() {
+    this.serverId = 12;
+    this.serverText = 'server down';
+  }
 
   ngOnInit() {
   }
