@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-app-username',
+  selector: 'app-username',
   templateUrl: './app-username.component.html',
   styleUrls: ['./app-username.component.css']
 })
