@@ -14,4 +14,8 @@ export class AppUsernameComponent implements OnInit {
   ngOnInit() {
   }
 
+  resetUsername() {
+    this.username = '';
+  }
+
 }

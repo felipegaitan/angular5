@@ -1,3 +1,11 @@
 <label>Username</label>
 <input [(ngModel)]="username"
         class="form-control" >
+<div [hidden]="!username" >
+<hr  />
+<button class="btn btn-danger"
+        (click)="resetUsername()">
+       Reset the username</button>
+    <hr />
+    <pre>{{ username }}</pre>
+</div>
