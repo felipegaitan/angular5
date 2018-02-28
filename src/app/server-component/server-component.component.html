@@ -2,17 +2,18 @@
 <input 
       class="form-control"
       type="text"
+      [disabled]="!allowNewServer"
       [(ngModel)]="serverName">
 <hr />
 <button 
       class="btn btn-danger" 
-      [disabled]="allowNewServer"
+      [disabled]="!allowNewServer"
       (click)="createServer()">Add Server</button>
 <hr />
-<pre>
-  {{ serverCreationStatus }}
-</pre>
-<pre>
+<!-- <pre>
+  {{ serverCreated }}
+</pre> -->
+<pre [hidden]="!serverCreated">
   Server #{{ serverId }} - '{{ serverName }}'
 </pre>
  

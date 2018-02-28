@@ -12,17 +12,19 @@ export class ServerComponentComponent implements OnInit {
   serverId: number;
   serverName: string;
   allowNewServer: boolean;
+  serverCreated: boolean;
   serverCreationStatus: string;
 
   utilities = new AppUtilities();
 
   constructor() {
     this.serverId = this.utilities.randomNumber();
-    this.allowNewServer = true;
-    this.serverName = 'Original Server';
+    this.allowNewServer = false;
+    this.serverCreated = false;
+    this.serverName = '';
     this.serverCreationStatus = 'no server created!';
     setTimeout(() => {
-      this.allowNewServer = false;
+      this.allowNewServer = true;
     } , 2000 );
   }
 
@@ -30,7 +32,10 @@ export class ServerComponentComponent implements OnInit {
   }
 
   createServer() {
-    this.serverCreationStatus = 'server created!';
+    if(!this.serverCreated){
+      this.serverCreated = !this.serverCreated;
+      this.serverCreationStatus = 'server created! The na is ' + this.serverName;
+    }
   }
 
 }
